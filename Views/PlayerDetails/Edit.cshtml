@@ -1,0 +1,47 @@
+﻿@model NETD3202_Lab5_RyanClayson.Models.PlayerDetails
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div style="margin-left: 40%; margin-right: 10%;">
+    <h4 style="margin-left: -10%;">Edit Player</h4>
+    <hr style="margin-left: -10%;" />
+    <div class="row">
+        <div>
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="pID" />
+                <div class="form-group">
+                    <label asp-for="pID" class="control-label">Player ID</label>
+                    <input asp-for="pID" class="form-control" value="@Model.pID" disabled />
+                    <span asp-validation-for="pID" class="text-danger"></span>
+                 </div>
+                 <div class="form-group">
+                    <label asp-for="playerAge" class="control-label">Age</label>
+                    <input asp-for="playerAge" class="form-control" placeholder="Age of Player" />
+                    <span asp-validation-for="playerAge" class="text-danger"></span>
+                 </div>
+                 <div class="form-group">
+                    <label asp-for="playerHeight" class="control-label">Height</label>
+                    <input asp-for="playerHeight" class="form-control" placeholder="Height of Player" />
+                    <span asp-validation-for="playerHeight" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="playerWeight" class="control-label">Weight</label>
+                    <input asp-for="playerWeight" class="form-control" placeholder="Weight of Player" />
+                     <span asp-validation-for="playerWeight" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div style="margin-left: -10%">
+        <a style="color: black" asp-controller="Players" asp-action="Index">NBA Player List</a>&nbsp;&nbsp;
+        <a style="color: black" asp-action="Index">Player Details List</a>
+    </div>
+</div>
+

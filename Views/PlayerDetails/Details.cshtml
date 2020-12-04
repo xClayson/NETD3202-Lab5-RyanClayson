@@ -1,0 +1,38 @@
+﻿@model NETD3202_Lab5_RyanClayson.Models.PlayerDetails
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+<div style="margin-left: 30%; margin-right: 10%;">
+    <div>
+        <h4>Player ID: @Html.DisplayNameFor(model => model.pID) - Details </h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                Age
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.playerAge)
+            </dd>
+            <dt class="col-sm-2">
+                Height
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.playerHeight)
+            </dd>
+            <dt class="col-sm-2">
+                Weight
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.playerWeight)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a style="color:black" asp-action="Edit" asp-route-id="@Model.pID">Edit</a>&nbsp;&nbsp; |
+        <a style="color: black" asp-controller="Players" asp-action="Details" asp-route-id="@Model.pID">Other Details</a>&nbsp;&nbsp;
+        <a style="color:black" asp-action="Index">Back to List</a>
+    </div>
+</div>

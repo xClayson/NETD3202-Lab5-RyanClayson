@@ -1,0 +1,57 @@
+﻿@model IEnumerable<NETD3202_Lab5_RyanClayson.Models.PlayerDetails>
+
+@{
+    ViewData["Title"] = "List";
+}
+<div style="margin-left: 20%; margin-right: 10%;">
+    <h1>Players Details List</h1>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <h4>@ViewData["Error"]</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Player ID
+                </th>
+                <th>
+                    Age
+                </th>
+                <th>
+                    Height
+                </th>
+                <th>
+                    Weight
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.pID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.playerAge)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.playerHeight)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.playerWeight)
+                    </td>
+                    <td>
+                        <a style="color: black" asp-action="Edit" asp-route-id="@item.pID">Edit</a> |
+                        <a style="color: black" asp-action="Details" asp-route-id="@item.pID">Details</a> |
+                        <a style="color: black" asp-action="Delete" asp-route-id="@item.pID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <p class="lead" style="margin-left: 30%; margin-right: 0%;">
+        <a asp-controller="Players" asp-action="Index" class="btn btn-lg btn-secondary">Player List</a>
+    </p>
+</div>
