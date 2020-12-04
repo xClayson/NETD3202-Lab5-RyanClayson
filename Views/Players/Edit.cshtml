@@ -4,46 +4,42 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<div style="margin-left: 40%; margin-right: 10%;">
+    <h4 style="margin-left: -10%;">Edit Player</h4>
+    <hr style="margin-left: -10%;" />
+    <div class="row">
+        <div>
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="playerID" />
+                <div class="form-group">
+                    <label asp-for="firstName" class="control-label">First Name</label>
+                    <input asp-for="firstName" class="form-control" placeholder="e.g. Mike" />
+                    <span asp-validation-for="firstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="lastName" class="control-label">Last Name</label>
+                    <input asp-for="lastName" class="form-control" placeholder="e.g. Smith" />
+                    <span asp-validation-for="lastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="yearDrafted" class="control-label">Year Drafted</label>
+                    <input asp-for="yearDrafted" class="form-control" placeholder="e.g. 2000" />
+                    <span asp-validation-for="yearDrafted" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="teamName" class="control-label">Team Name</label>
+                    <input asp-for="teamName" class="form-control" placeholder="e.g. Toronto Raptors" />
+                    <span asp-validation-for="teamName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
 
-<h4>Player</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="playerID" />
-            <div class="form-group">
-                <label asp-for="firstName" class="control-label"></label>
-                <input asp-for="firstName" class="form-control" />
-                <span asp-validation-for="firstName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="lastName" class="control-label"></label>
-                <input asp-for="lastName" class="form-control" />
-                <span asp-validation-for="lastName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="yearDrafted" class="control-label"></label>
-                <input asp-for="yearDrafted" class="form-control" />
-                <span asp-validation-for="yearDrafted" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="teamName" class="control-label"></label>
-                <input asp-for="teamName" class="form-control" />
-                <span asp-validation-for="teamName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+    <div style="margin-left: -10%">
+        <a style="color: black" asp-action="Index">Back to List</a>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

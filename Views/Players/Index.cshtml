@@ -3,51 +3,58 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.firstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.lastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.yearDrafted)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.teamName)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.firstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.lastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.yearDrafted)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.teamName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.playerID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.playerID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.playerID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div style="margin-left: 20%; margin-right: 10%;">
+    <h1>NBA Player List</h1>
+    <p>
+        <a style="color: black" asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    First Name
+                </th>
+                <th>
+                    Last Name
+                </th>
+                <th>
+                    Year Drafted
+                </th>
+                <th>
+                    Team Name
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.playerID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.firstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.lastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.yearDrafted)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.teamName)
+                    </td>
+                    <td>
+                        <a style="color: black" asp-action="Edit" asp-route-id="@item.playerID">Edit</a> |
+                        <a style="color: black" asp-action="Details" asp-route-id="@item.playerID">Details</a> |
+                        <a style="color: black" asp-action="Delete" asp-route-id="@item.playerID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <p class="lead" style="margin-left: 30%; margin-right: 0%;">
+        <a asp-controller="PlayerDetails" asp-action="Index" class="btn btn-lg btn-secondary">Player Details List</a>
+    </p>
+</div>
