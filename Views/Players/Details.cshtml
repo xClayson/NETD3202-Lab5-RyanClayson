@@ -10,6 +10,12 @@
         <hr />
         <dl class="row">
             <dt class="col-sm-2">
+                ID
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.playerID)
+            </dd>
+            <dt class="col-sm-2">
                 First Name
             </dt>
             <dd class="col-sm-10">
@@ -36,8 +42,8 @@
         </dl>
     </div>
     <div>
-        <a style="color: black" asp-action="Edit" asp-route-id="@Model.playerID">Edit</a>&nbsp;&nbsp; |
-        <a style="color: black" asp-controller="PlayerDetails" asp-action="Details" asp-route-id="@Model.playerID">Player Details</a>&nbsp;&nbsp;
-        <a style="color: black" asp-action="Index">Back to List</a>
+        <a asp-action="Edit" asp-route-id="@Model.playerID">Edit</a>&nbsp;&nbsp; |
+        <a asp-controller="PlayerDetails" asp-action="Details" asp-route-id="@Model.playerID">Player Details</a>&nbsp;&nbsp;
+        <a asp-action="Index">Back to List</a>
     </div>
 </div>

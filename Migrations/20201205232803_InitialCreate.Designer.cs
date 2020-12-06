@@ -9,7 +9,7 @@ using NETD3202_Lab5_RyanClayson.Models;
 namespace NETD3202_Lab5_RyanClayson.Migrations
 {
     [DbContext(typeof(PlayerContext))]
-    [Migration("20201204200427_InitialCreate")]
+    [Migration("20201205232803_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,6 +42,27 @@ namespace NETD3202_Lab5_RyanClayson.Migrations
                     b.HasKey("playerID");
 
                     b.ToTable("Players");
+                });
+
+            modelBuilder.Entity("NETD3202_Lab5_RyanClayson.Models.PlayerDetails", b =>
+                {
+                    b.Property<int>("pID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("playerAge")
+                        .HasColumnType("int");
+
+                    b.Property<string>("playerHeight")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("playerWeight")
+                        .HasColumnType("int");
+
+                    b.HasKey("pID");
+
+                    b.ToTable("PlayerDetails");
                 });
 #pragma warning restore 612, 618
         }

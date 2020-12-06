@@ -7,6 +7,21 @@ namespace NETD3202_Lab5_RyanClayson.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "PlayerDetails",
+                columns: table => new
+                {
+                    pID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    playerAge = table.Column<int>(type: "int", nullable: false),
+                    playerHeight = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    playerWeight = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PlayerDetails", x => x.pID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Players",
                 columns: table => new
                 {
@@ -25,6 +40,9 @@ namespace NETD3202_Lab5_RyanClayson.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "PlayerDetails");
+
             migrationBuilder.DropTable(
                 name: "Players");
         }

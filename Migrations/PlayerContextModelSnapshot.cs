@@ -41,6 +41,27 @@ namespace NETD3202_Lab5_RyanClayson.Migrations
 
                     b.ToTable("Players");
                 });
+
+            modelBuilder.Entity("NETD3202_Lab5_RyanClayson.Models.PlayerDetails", b =>
+                {
+                    b.Property<int>("pID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("playerAge")
+                        .HasColumnType("int");
+
+                    b.Property<string>("playerHeight")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("playerWeight")
+                        .HasColumnType("int");
+
+                    b.HasKey("pID");
+
+                    b.ToTable("PlayerDetails");
+                });
 #pragma warning restore 612, 618
         }
     }
