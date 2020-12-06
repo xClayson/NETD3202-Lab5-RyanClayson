@@ -9,7 +9,7 @@ using NETD3202_Lab5_RyanClayson.Models;
 namespace NETD3202_Lab5_RyanClayson.Migrations
 {
     [DbContext(typeof(PlayerContext))]
-    [Migration("20201205232803_InitialCreate")]
+    [Migration("20201206034737_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

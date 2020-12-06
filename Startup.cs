@@ -13,6 +13,7 @@ using NETD3202_Lab5_RyanClayson.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore.SqlServer;
+using NETD3202_Lab5_RyanClayson.Data;
 
 
 namespace NETD3202_Lab5_RyanClayson
@@ -30,12 +31,15 @@ namespace NETD3202_Lab5_RyanClayson
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddRazorPages();
+            services.AddMvc();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddMvc(options => options.EnableEndpointRouting = false);
 
             //Added a connection
-            string connection = @"Server=(localdb)\mssqllocaldb;Database=NETD3202-Lab5-RyanClayson;Trusted_Connection=True;ConnectRetryCount=0";
-            services.AddDbContext<PlayerContext>(options => options.UseSqlServer(connection));
+           services.AddDbContext<PlayerContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,6 +61,9 @@ namespace NETD3202_Lab5_RyanClayson
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseMvcWithDefaultRoute();
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
