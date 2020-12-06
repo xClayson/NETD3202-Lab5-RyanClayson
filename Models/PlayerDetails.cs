@@ -15,8 +15,8 @@ namespace NETD3202_Lab5_RyanClayson.Models
         public string playerHeight { get; set; }
         public int playerWeight { get; set; }
         
-        //[ForeignKey("pID")]
-        //public Player playerID { get; set; }
+        [ForeignKey("pID")]
+        public virtual Player playerID { get; set; }
 
     }
 }
