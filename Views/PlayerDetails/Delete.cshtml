@@ -21,7 +21,7 @@
                 Player ID
             </dt>
             <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.pID)
+                @Html.DisplayFor(model => model.playerID)
             </dd>
             <dt class="col-sm-2">
                 Age
@@ -44,7 +44,7 @@
         </dl>
 
         <form asp-action="Delete">
-            <input type="hidden" asp-for="pID" />
+            <input type="hidden" asp-for="playerID" />
             <input type="submit" value="Delete" class="btn btn-danger" /> |
             <a style="color: blue" asp-action="Index">Back to List</a>
         </form>

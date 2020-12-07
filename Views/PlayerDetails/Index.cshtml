@@ -38,7 +38,7 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.pID)
+                        @Html.DisplayFor(modelItem => item.playerID)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.playerAge)
@@ -50,9 +50,9 @@
                         @Html.DisplayFor(modelItem => item.playerWeight)
                     </td>
                     <td>
-                        <a style="color: blue" asp-action="Edit" asp-route-id="@item.pID">Edit</a> |
-                        <a style="color: blue" asp-action="Details" asp-route-id="@item.pID">Details</a> |
-                        <a style="color: blue" asp-action="Delete" asp-route-id="@item.pID">Delete</a>
+                        <a style="color: blue" asp-action="Edit" asp-route-id="@item.playerID">Edit</a> |
+                        <a style="color: blue" asp-action="Details" asp-route-id="@item.playerID">Details</a> |
+                        <a style="color: blue" asp-action="Delete" asp-route-id="@item.playerID">Delete</a>
                     </td>
                 </tr>
             }

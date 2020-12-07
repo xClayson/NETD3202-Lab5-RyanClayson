@@ -18,11 +18,11 @@
         <div>
             <form asp-action="Edit">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <input type="hidden" asp-for="pID" />
+                <input type="hidden" asp-for="playerID" />
                 <div class="form-group">
-                    <label asp-for="pID" class="control-label">Player ID</label>
-                    <input asp-for="pID" class="form-control" value="@Model.pID" disabled />
-                    <span asp-validation-for="pID" class="text-danger"></span>
+                    <label asp-for="playerID" class="control-label">Player ID</label>
+                    <input asp-for="playerID" class="form-control" value="@Model.playerID" disabled />
+                    <span asp-validation-for="playerID" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="playerAge" class="control-label">Age</label>

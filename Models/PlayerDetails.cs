@@ -15,14 +15,10 @@ namespace NETD3202_Lab5_RyanClayson.Models
     public class PlayerDetails
     {
         [Key]
-        public int pID { get; set; } //priamry key of table
+        public int playerID { get; set; } //priamry key of table
         public int playerAge { get; set; } // Age of Player
         public string playerHeight { get; set; }// Height of Player
-        public int playerWeight { get; set; } // Weight of Player
-        
-        //Foreign Key
-        [ForeignKey("pID")]
-        public virtual Player playerID { get; set; }
+        public int playerWeight { get; set; } // Weight of Player     
 
     }
 }

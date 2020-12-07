@@ -38,7 +38,7 @@ namespace NETD3202_Lab5_RyanClayson.Controllers
             }
 
             var playerDetails = await _context.PlayerDetails
-                .FirstOrDefaultAsync(m => m.pID == id);
+                .FirstOrDefaultAsync(m => m.playerID == id);
             if (playerDetails == null)
             {
                 return NotFound();
@@ -58,7 +58,7 @@ namespace NETD3202_Lab5_RyanClayson.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("pID,playerAge,playerHeight,playerWeight")] PlayerDetails playerDetails)
+        public async Task<IActionResult> Create([Bind("playerID,playerAge,playerHeight,playerWeight")] PlayerDetails playerDetails)
         {
             if (ModelState.IsValid)
             {
@@ -97,9 +97,9 @@ namespace NETD3202_Lab5_RyanClayson.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("pID,playerAge,playerHeight,playerWeight")] PlayerDetails playerDetails)
+        public async Task<IActionResult> Edit(int id, [Bind("playerID,playerAge,playerHeight,playerWeight")] PlayerDetails playerDetails)
         {
-            if (id != playerDetails.pID)
+            if (id != playerDetails.playerID)
             {
                 return NotFound();
             }
@@ -113,7 +113,7 @@ namespace NETD3202_Lab5_RyanClayson.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PlayerDetailsExists(playerDetails.pID))
+                    if (!PlayerDetailsExists(playerDetails.playerID))
                     {
                         return NotFound();
                     }
@@ -136,7 +136,7 @@ namespace NETD3202_Lab5_RyanClayson.Controllers
             }
 
             var playerDetails = await _context.PlayerDetails
-                .FirstOrDefaultAsync(m => m.pID == id);
+                .FirstOrDefaultAsync(m => m.playerID == id);
             if (playerDetails == null)
             {
                 return NotFound();
@@ -165,7 +165,7 @@ namespace NETD3202_Lab5_RyanClayson.Controllers
         //Checks if PlayerDetails exists
         private bool PlayerDetailsExists(int id)
         {
-            return _context.PlayerDetails.Any(e => e.pID == id);
+            return _context.PlayerDetails.Any(e => e.playerID == id);
         }
     }
 }
