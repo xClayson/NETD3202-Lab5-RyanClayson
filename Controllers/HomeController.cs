@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Ryan Clayson
+ * NETD 3202 - Lab 5
+ * December 6, 2020
+ * This ASP.NET Core application is designed to allow the user to enter an NBA Player and add it to a database
+ */
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -18,6 +23,7 @@ namespace NETD3202_Lab5_RyanClayson.Controllers
             _logger = logger;
         }
 
+        //Creates view for index
         public IActionResult Index()
         {
             return View();

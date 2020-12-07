@@ -1,4 +1,11 @@
-﻿@model NETD3202_Lab5_RyanClayson.Models.PlayerDetails
+﻿<!--Ryan Clayson
+ * NETD 3202 - Lab 5
+ * December 6, 2020
+ * This ASP.NET Core application is designed to allow the user to enter an NBA Player and add it to a database
+ * Added Login Functionality, Registration for new user
+    * Purpose: To Edit Entry
+-->
+@model NETD3202_Lab5_RyanClayson.Models.PlayerDetails
 
 @{
     ViewData["Title"] = "Edit";
@@ -16,13 +23,13 @@
                     <label asp-for="pID" class="control-label">Player ID</label>
                     <input asp-for="pID" class="form-control" value="@Model.pID" disabled />
                     <span asp-validation-for="pID" class="text-danger"></span>
-                 </div>
-                 <div class="form-group">
+                </div>
+                <div class="form-group">
                     <label asp-for="playerAge" class="control-label">Age</label>
                     <input asp-for="playerAge" class="form-control" placeholder="Age of Player" />
                     <span asp-validation-for="playerAge" class="text-danger"></span>
-                 </div>
-                 <div class="form-group">
+                </div>
+                <div class="form-group">
                     <label asp-for="playerHeight" class="control-label">Height</label>
                     <input asp-for="playerHeight" class="form-control" placeholder="Height of Player" />
                     <span asp-validation-for="playerHeight" class="text-danger"></span>
@@ -30,7 +37,7 @@
                 <div class="form-group">
                     <label asp-for="playerWeight" class="control-label">Weight</label>
                     <input asp-for="playerWeight" class="form-control" placeholder="Weight of Player" />
-                     <span asp-validation-for="playerWeight" class="text-danger"></span>
+                    <span asp-validation-for="playerWeight" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <input type="submit" value="Save" class="btn btn-primary" />
