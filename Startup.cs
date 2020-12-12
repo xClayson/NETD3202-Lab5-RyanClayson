@@ -77,6 +77,7 @@ namespace NETD3202_Lab5_RyanClayson
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }
